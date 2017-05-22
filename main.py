@@ -43,8 +43,8 @@ def main():
     # pos_keys = import_lexicon('training_sets/lexicons/positive-words.txt')
     # neg_keys = import_lexicon('training_sets/lexicons/negative-words.txt')
 
-    pos_train_set, pos_test_set = read_from_dir('training_sets/reviews/pos1')
-    neg_train_set, neg_test_set = read_from_dir('training_sets/reviews/neg1')
+    pos_train_set, pos_test_set = read_from_dir('training_sets/reviews/pos')
+    neg_train_set, neg_test_set = read_from_dir('training_sets/reviews/neg')
     print(len(pos_train_set), len(pos_test_set))
     print(len(neg_train_set), len(neg_test_set))
 
