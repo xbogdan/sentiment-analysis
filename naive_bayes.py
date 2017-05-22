@@ -185,8 +185,6 @@ class NaiveBayes:
             for word in vocabulary:
                 word_occ = self.nb_dict[label][word] if word in self.nb_dict[label] else 0
                 # print(f'{word}|{label} = ({word_occ} + 1) / ({len(self.mega_doc[label])} + {vocabulary_size})')
-                # if word == 'is':
-                #     import ipdb; ipdb.set_trace()
                 val = Decimal((word_occ + 1) / Decimal(vocabulary_size + len(self.mega_doc[label])))
                 self.vocabulary_dict[word][label] = val
 
