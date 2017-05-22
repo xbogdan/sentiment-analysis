@@ -159,8 +159,6 @@ class NaiveBayes:
 
         # combine all examples into one for each class
         # creating a mega document for each class
-        vocabulary_size = 0
-
         for i in range(0, len(classes)):
             self.mega_doc[classes[i]].extend(vocabularies[i])
 
@@ -169,7 +167,7 @@ class NaiveBayes:
             vocabulary.extend(self.mega_doc[label])
 
         vocabulary = set(vocabulary)
-        vocabulary_size += len(vocabulary)
+        vocabulary_size = len(vocabulary)
         # print('Vocabulary size', vocabulary_size)
 
         # transform the list with all occurences to a dict with relative occurences
@@ -185,6 +183,7 @@ class NaiveBayes:
             for word in vocabulary:
                 word_occ = self.nb_dict[label][word] if word in self.nb_dict[label] else 0
                 # print(f'{word}|{label} = ({word_occ} + 1) / ({len(self.mega_doc[label])} + {vocabulary_size})')
+                # +1 is Laplace smoothing
                 val = Decimal((word_occ + 1) / Decimal(vocabulary_size + len(self.mega_doc[label])))
                 self.vocabulary_dict[word][label] = val
 
