@@ -53,6 +53,7 @@ def main():
              classes=['positive' for _ in range(0, len(pos_train_set))] +
                      ['negative' for _ in range(0, len(neg_train_set))])
 
+    # postive test
     pos_returns = {'positive': 0, 'negative': 0}
     for value in pos_test_set:
         # print(nb.identify(pos_value))
@@ -60,8 +61,9 @@ def main():
             pos_returns['positive'] += 1
         else:
             pos_returns['negative'] += 1
-    print('positve', pos_returns['positive'] * 100/(pos_returns['positive']+pos_returns['negative']), '%')
+    print('positve', pos_returns['positive'] * 100/(pos_returns['positive']+pos_returns['negative']), '% correct')
 
+    # negative test
     pos_returns = {'positive': 0, 'negative': 0}
     for value in neg_test_set:
         # print(nb.identify(pos_value))
@@ -69,7 +71,7 @@ def main():
             pos_returns['negative'] += 1
         else:
             pos_returns['positive'] += 1
-    print('negative', pos_returns['negative'] * 100 / (pos_returns['positive'] + pos_returns['negative']), '%')
+    print('negative', pos_returns['negative'] * 100 / (pos_returns['positive'] + pos_returns['negative']), '% correct')
 
 
 if __name__ == '__main__':
